@@ -1,7 +1,7 @@
 local windows = loadstring(game:HttpGet("https://raw.githubusercontent.com/ZepsyyCodesLUA/Synapse-Library-OBFUSCATED-/main/Source.lua"))()
 local win = windows:Create({
-    Title = "KARMAWARE",
-    Game = "best locks"
+    Title = "KARMAWARE ",
+    Game = "skids"
 })
 
 local tab = win:NewTab({
@@ -960,7 +960,7 @@ local tab = win:NewTab({
 })
 
 tab:Button({
-    Title = "aimlock (Q)",
+    Title = "Aimlock (Q)",
     Callback = function()
         getgenv().AimPart = "HumanoidRootPart"
         getgenv().AimlockKey = "q"
@@ -1146,42 +1146,56 @@ tab:Button({
 
 
 tab:Button({
-    Title = "smooth aimlock (Q)",
+    Title = "Smooth Aimlock (Q)",
     Callback = function()
         loadstring(game:HttpGet("https://pastebin.com/raw/Rb5LH9bx"))()
     end
 })
 
 tab:Button({
-    Title = "streamable silent aim",
+    Title = "Streamable Silent Aim",
     Callback = function()
         loadstring(game:HttpGet("https://pastebin.com/raw/Y9hErQAW"))()
     end
 })
 
 tab:Button({
-    Title = "dhm (Q)",
+    Title = "dhm blatant lock",
     Callback = function()
         local Settings = { AimLock = { Enabled = true, Aimlockkey = "q", Prediction = 0.130340, Aimpart = 'HumanoidRootPart', Notifications = true }, Settings = { Thickness = 3.5, Transparency = 1, Color = Color3.fromRGB(106, 13, 173), FOV = true } } local CurrentCamera = game:GetService("Workspace").CurrentCamera local Inset = game:GetService("GuiService"):GetGuiInset().Y local RunService = game:GetService("RunService") local Mouse = game.Players.LocalPlayer:GetMouse() local LocalPlayer = game.Players.LocalPlayer local Line = Drawing.new("Line") local Circle = Drawing.new("Circle") local Plr = game.Players.LocalPlayer Mouse.KeyDown:Connect(function(KeyPressed) if KeyPressed == (Settings.AimLock.Aimlockkey) then if Settings.AimLock.Enabled == true then Settings.AimLock.Enabled = false if Settings.AimLock.Notifications == true then Plr = FindClosestPlayer() game.StarterGui:SetCore("SendNotification", { Title = "p", Text = "Unlocked" }) end else Plr = FindClosestPlayer() Settings.AimLock.Enabled = true if Settings.AimLock.Notifications == true then game.StarterGui:SetCore("SendNotification", { Title = "p", Text = "Locked On : " .. tostring(Plr.Character.Humanoid.DisplayName) }) end end end end) function FindClosestPlayer() local ClosestDistance, ClosestPlayer = math.huge, nil; for _, Player in next, game:GetService("Players"):GetPlayers() do if Player ~= LocalPlayer then local Character = Player.Character if Character and Character.Humanoid.Health > 1 then local Position, IsVisibleOnViewPort = CurrentCamera:WorldToViewportPoint(Character.HumanoidRootPart .Position) if IsVisibleOnViewPort then local Distance = (Vector2.new(Mouse.X, Mouse.Y) - Vector2.new(Position.X, Position.Y)).Magnitude if Distance < ClosestDistance then ClosestPlayer = Player ClosestDistance = Distance end end end end end return ClosestPlayer, ClosestDistance end RunService.Heartbeat:connect(function() if Settings.AimLock.Enabled == true then local Vector = CurrentCamera:WorldToViewportPoint(Plr.Character[Settings.AimLock.Aimpart].Position + (Plr.Character[Settings.AimLock.Aimpart].Velocity * Settings.AimLock.Prediction)) Line.Color = Settings.Settings.Color Line.Transparency = Settings.Settings .Transparency Line.Thickness = Settings.Settings .Thickness Line.From = Vector2.new(Mouse.X, Mouse.Y + Inset) Line.To = Vector2.new(Vector.X, Vector.Y) Line.Visible = true Circle.Position = Vector2.new(Mouse.X, Mouse.Y + Inset) Circle.Visible = Settings.Settings.FOV Circle.Thickness = 1.5 Circle.Thickness = 2 Circle.Radius = 60 Circle.Color = Settings.Settings.Color elseif Settings.AimLock.FOV == true then Circle.Visible = true else Circle.Visible = false Line.Visible = false end end) local mt = getrawmetatable(game) local old = mt.__namecall setreadonly(mt, false) mt.__namecall = newcclosure(function(...) local args = {...} if Settings.AimLock.Enabled and getnamecallmethod() == "FireServer" and args[2] == "MousePos" then args[3] = Plr.Character[Settings.AimLock.Aimpart].Position + (Plr.Character[Settings.AimLock.Aimpart].Velocity * Settings.AimLock.Prediction) return old(unpack(args)) end return old(...) end)
     end
 })
 
 tab:Button({
-    Title = "all hitbox silent",
+    Title = "All hitboxes Silent Aim (NOT LAGGY)",
     Callback = function()
         loadstring(game:HttpGet("https://raw.githubusercontent.com/topillesrevenge/Streamable-Silent/main/Main"))()
 DaHoodSettings.Prediction = 0.121
 Aiming.TargetPart = {"Head", "LeftHand", "RightHand", "LeftLowerArm", "RightLowerArm", "LeftUpperArm", "RightUpperArm", "LeftFoot", "LeftLowerLeg", "UpperTorso", "HumanoidRootPart", "LeftUpperLeg", "RightLowerLeg", "RightFoot", "LowerTorso"}
-Aiming.FOV = 12
+Aiming.FOV = 25
 Aiming.FOVSides = 25
 Aiming.HitChance = 400
 Aiming.ShowFOV = false
     end
 })
 
+tab:Button({
+    Title = "Enable FOV (HITBOX LOCK)",
+    Callback = function()
+        Aiming.ShowFOV = true
+    end
+})
 
 tab:Button({
-    Title = "tracer lock 1 (Q)",
+    Title = "Disable FOV (HITBOX LOCK)",
+    Callback = function()
+        Aiming.ShowFOV = false
+    end
+})
+
+
+tab:Button({
+    Title = "OP Tracer Lock (C)",
     Callback = function()
     Settings = {
         Kalslock = {
@@ -1208,7 +1222,7 @@ tab:Button({
         Texts = false, 
         TextColor = Color3.new(254, 245, 244),
         TextSize = 35,
-        TextInput = "karma",
+        TextInput = "riz",
         Hitbox = true,
         NoBulletDelay = true,
         Autoclicker = true,
@@ -1853,14 +1867,14 @@ end
 })
 
 tab:Button({
-    Title = "hood customs (H)",
+    Title = "HoodCustoms Lock (H)",
     Callback = function()
         loadstring(game:HttpGet("https://pastebin.com/raw/CUqKC55c"))()
     end
 })
 
 tab:Button({
-    Title = "tracer 2 (Q)",
+    Title = "Tracer Lock (Q)",
     Callback = function()
         getgenv().Prediction = 0.131
 getgenv().AirshotFunc = true
@@ -1984,30 +1998,93 @@ end
 })
 
 tab:Button({
-    Title = "dot 1",
+    Title = "stream 1 (q on/off)",
     Callback = function()
-        loadstring(game:HttpGet("https://pastebin.com/raw/3i2k9n1x"))()
+        loadstring(game:HttpGet("https://pastebin.com/raw/zaV78RaN"))()
     end
 })
 
 tab:Button({
-    Title = "dot 2",
+    Title = "stream 2 (e on/off)",
     Callback = function()
-        loadstring(game:HttpGet("https://pastebin.com/raw/2X4nTNNE"))()
+        loadstring(game:HttpGet("https://pastebin.com/raw/wY1B2Vxu"))()
     end
 })
 
 tab:Button({
-    Title = "dot 3",
+    Title = "stream 3 (e on/off)",
     Callback = function()
-        loadstring(game:HttpGet("https://pastebin.com/raw/4mjRTtnv"))()
+        loadstring(game:HttpGet("https://pastebin.com/raw/eJqPKJAN"))()
     end
 })
 
 tab:Button({
-    Title = "dot 4",
+    Title = "stream 4",
     Callback = function()
-        loadstring(game:HttpGet("https://pastebin.com/raw/JcPjHWcF"))()
+        loadstring(game:HttpGet("https://pastebin.com/raw/wripdtYN"))()
+    end
+})
+
+tab:Button({
+    Title = "stream 5",
+    Callback = function()
+        loadstring(game:HttpGet("https://pastebin.com/raw/5pgzEmeb"))()
+    end
+})
+
+tab:Button({
+    Title = "stream 6",
+    Callback = function()
+        loadstring(game:HttpGet("https://pastebin.com/raw/R16txMup"))()
+    end
+})
+
+tab:Button({
+    Title = "stream n resolver 7 (b on/off)",
+    Callback = function()
+        loadstring(game:HttpGet("https://pastebin.com/raw/x3RMwjPH"))()
+    end
+})
+
+tab:Button({
+    Title = "stream 8",
+    Callback = function()
+        loadstring(game:HttpGet("https://pastebin.com/raw/FiYiXPhb"))()
+    end
+})
+
+tab:Button({
+    Title = "stream 9",
+    Callback = function()
+        loadstring(game:HttpGet("https://pastebin.com/raw/J8z9sThg"))()
+    end
+})
+
+tab:Button({
+    Title = "stream 10",
+    Callback = function()
+        loadstring(game:HttpGet("https://pastebin.com/raw/suqy20TZ"))()
+    end
+})
+
+tab:Button({
+    Title = "stream 11",
+    Callback = function()
+        loadstring(game:HttpGet("https://pastebin.com/raw/KHVAr6jF"))()
+    end
+})
+
+tab:Button({
+    Title = "stream 12",
+    Callback = function()
+        loadstring(game:HttpGet("https://pastebin.com/raw/Y9hErQAW"))()
+    end
+})
+
+tab:Button({
+    Title = "stream 13",
+    Callback = function()
+        loadstring(game:HttpGet("https://pastebin.com/raw/Rb5LH9bx"))()
     end
 })
 
@@ -2190,7 +2267,7 @@ local tab = win:NewTab({
 })
 
 tab:Label({
-    Title = "made by karma"
+    Title = "made by xen"
 })
 
 
